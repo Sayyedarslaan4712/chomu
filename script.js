@@ -154,14 +154,14 @@ const songs = [
         title: "Bulleya",
         artist: "SayyedArslaan",
         cover: "./assets/covers/ars.webp",
-        file: "./assets/songs/bulleya_Sultan_.mp3",
+        file: "./assets/songs/bulleya_sultan_.mp3",
         duration: "00.58"
     },
     {
         title: "Harry potter", 
         artist: "SayyedArslaan",
         cover: "./assets/covers/jellyfish.jpg",
-        file: "./assets/songs/harry-potter.mp3",
+        file: "./assets/songs/Harry-Potter.mp3",
         duration: "00:30"
     },
     {
@@ -175,7 +175,7 @@ const songs = [
         title: "Wanna Be Yours",
         artist: "SayyedArslaan",
         cover: "./assets/covers/couple.jpg",
-        file: "./assets/songs/i wanna be yours.mp3",
+        file: "./assets/songs/i Wanna Be Yours.mp3",
         duration: "00:39"
     },
     {
@@ -196,14 +196,14 @@ const songs = [
         title: "until i found you",
         artist: "SayyedArslaan",
         cover: "./assets/covers/jellyfish-1.jpg",
-        file: "./assets/songs/until i found you.mp3",
+        file: "./assets/songs/Until I Found You.mp3",
         duration: "00:34"
     },
     {
         title: "die with a smile",
         artist: "SayyedArslaan",
         cover: "./assets/covers/sadm.jpg",
-        file: "./assets/songs/die with a smile.mp3",
+        file: "./assets/songs/Die With A Smile.mp3",
         duration: "00:55"
     },
     {
