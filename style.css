@@ -109,6 +109,8 @@ body {
     50% { transform: scale(1.1); }
     100% { transform: scale(1); }
 }
+/* letter */
+
 /* Add to style.css */
 /* Animated Gradient Background */
 body::before {
@@ -173,11 +175,24 @@ body::before {
     width: 90%;
     height: 90%;
     background: #fff;
-    padding: 15px;
     transform: translateY(100%);
     transition: all 0.5s;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
+        font-size: 2rem;
+        font-weight: bold;
+        color: #ff69b4;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        border-radius: 10px;
+       align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 5px 15px rgba(255,20,147,0.4);
+        transition: all 0.3s;
+        margin-top: 20px;
+        align-items: center;
+    }
+  
   
   .envelope.open .letter {
     transform: translateY(-120%);
@@ -214,42 +229,49 @@ body::before {
     50% { transform: scale(1.1); opacity: 1; }
     100% { transform: scale(1); opacity: 0.8; }
   }
-  /* Add to style.css */
-.music-section {
-    padding: 5rem 2rem;
-    background: linear-gradient(45deg, #ff69b4, #ff3385);
-    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 90%);
+  :root {
+    --primary-pink: #ff69b4;
+    --secondary-pink: #ff1493;
+    --glass-bg: rgba(255, 255, 255, 0.1);
 }
 
-.music-player {
-    max-width: 800px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-}
-
+/* albart*/
 .album-art {
     position: relative;
-    width: 200px;
-    height: 200px;
-    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: visible;
+    box-shadow: 0 0 50px rgba(255,105,180,0.3);
+    transition: transform 0.3s;
 }
 
-.album-art img {
+.album-cover {
     width: 100%;
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    z-index: 2;
     position: relative;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    z-index: 2;
 }
+/* Album Cover Styling */
+.album-cover {
+   
+    width: 500px;  /* Fixed width */
+    height: 300px; /* Fixed height */
+    object-fit: cover; /* Maintain aspect ratio, avoid stretching */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Playlist Cover Image */
+.playlist-item img {
+    width: 300px;  /* Small fixed width */
+    height: 150px; /* Small fixed height */
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 5px;
+}
+
 
 .vinyl {
     position: absolute;
@@ -261,182 +283,210 @@ body::before {
     left: -5%;
     animation: rotate 20s linear infinite;
     animation-play-state: paused;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.5s;
 }
 
 .playing .vinyl {
-    animation-play-state: running;
+    opacity: 1;
+    transform: translateX(-50px);
 }
 
+.vinyl-hole {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ग्लासमॉर्फिज्म इफेक्ट */
+.player-controls {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* प्रोग्रेस बार डिज़ाइन */
+.progress-bar {
+    height: 5px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-pink), var(--secondary-pink));
+    width: 30%;
+    border-radius: 3px;
+    position: relative;
+    transition: width 0.1s linear;
+}
+
+.progress-handle {
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    right: -5px;
+    top: -3px;
+    box-shadow: 0 0 10px var(--primary-pink);
+}
+
+/* बटन्स डिज़ाइन */
+.control-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+}
+
+.play-btn {
+    width: 70px;
+    height: 70px;
+    font-size: 1.5rem;
+    background: linear-gradient(45deg, var(--primary-pink), var(--secondary-pink));
+}
+
+.control-btn:hover {
+    transform: scale(1.1);
+    background: rgba(255,255,255,0.2);
+    box-shadow: 0 0 15px var(--primary-pink);
+}
+
+/* इक्वलाइज़र एनिमेशन */
+.equalizer {
+    display: flex;
+    gap: 5px;
+    height: 30px;
+    align-items: flex-end;
+}
+
+.equalizer .bar {
+    width: 5px;
+    background: var(--primary-pink);
+    animation: equalize 1.5s infinite ease-in-out;
+}
+
+.equalizer .bar:nth-child(1) { animation-delay: 0s; height: 20px; }
+.equalizer .bar:nth-child(2) { animation-delay: 0.2s; height: 25px; }
+.equalizer .bar:nth-child(3) { animation-delay: 0.4s; height: 15px; }
+
+@keyframes equalize {
+    0%, 100% { height: 20px; }
+    50% { height: 5px; }
+}
+
+/* नए एनिमेशन */
 @keyframes rotate {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
-.player-controls {
-    flex-grow: 1;
-    color: white;
+.album-art:hover {
+    transform: scale(1.05);
 }
 
+.shine-effect {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, 
+        rgba(255,255,255,0) 30%,
+        rgba(255,255,255,0.3) 50%,
+        rgba(255,255,255,0) 70%
+    );
+    top: 0;
+    left: 0;
+    z-index: 3;
+    animation: shine 5s infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-150%); }
+    50% { transform: translateX(150%); }
+    100% { transform: translateX(150%); }
+}
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+/* Playlist Items Font Styling */
+.playlist-item {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.playlist-item h4 {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #3e114a;
+    font-family: 'Dancing Script', cursive;
+}
+
+.playlist-item p {
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: #400e6a;
+    font-style: italic;
+}
+
+.playlist-item span {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 0.8rem;
+    color: #2b081b;
+}
+
+/* Player Section Fonts */
 .song-title {
     font-family: 'Dancing Script', cursive;
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
+    font-size: 2.5rem;
+    text-shadow: 
+        2px 2px 4px rgba(255,20,147,0.3),
+        0 0 20px rgba(255,105,180,0.2);
+    letter-spacing: 1px;
 }
 
-.progress-container {
-    background: rgba(255, 255, 255, 0.2);
-    height: 5px;
-    border-radius: 3px;
-    margin: 1.5rem 0;
-    cursor: pointer;
-    position: relative;
+.artist {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-.progress-bar {
-    width: 0%;
-    height: 100%;
-    background: #fff;
-    border-radius: 3px;
-    transition: width 0.1s linear;
-    position: relative;
+/* Active Song Highlight */
+.playlist-item.active h4 {
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(13, 74, 124, 0.5);
 }
 
-.progress-bar::after {
-    content: '';
-    position: absolute;
-    right: -5px;
-    top: -3px;
-    width: 12px;
-    height: 12px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+.playlist-item.active p {
+    font-weight: 400;
+    text-decoration: underline wavy #560837;
 }
 
-.time-display {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-}
-
-.controls {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin: 2rem 0;
-}
-
-.control-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 1rem;
-    transition: all 0.3s;
-    border-radius: 50%;
-}
-
-.control-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: scale(1.2);
-}
-
-#play {
-    font-size: 2rem;
-    padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-}
-
-.volume-control {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-#volume {
-    width: 120px;
-    height: 4px;
-    accent-color: white;
-    cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .music-player {
-        flex-direction: column;
-    }
-    
-    .album-art {
-        width: 150px;
-        height: 150px;
-    }
-}
-/* Add playlist styles */
-.playlist {
-    margin-top: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    padding: 1rem;
-}
-
-.playlist-header {
-    display: flex;
-    justify-content: space-between;
-    color: rgba(255, 255, 255, 0.7);
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.playlist-items {
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-.playlist-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.8rem;
-    border-radius: 8px;
-    transition: all 0.3s;
-    cursor: pointer;
-}
-
-.playlist-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.playlist-item.active {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.playlist-item img {
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-    margin-right: 1rem;
-}
-
-.song-info {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-}
-
-.song-name {
+/* Duration Font */
+.duration {
+    font-family: 'Poppins', monospace;
     font-weight: 500;
-}
-
-.song-artist {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.song-duration {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
 }
