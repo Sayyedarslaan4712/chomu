@@ -175,7 +175,7 @@ const songs = [
         title: "Wanna Be Yours",
         artist: "SayyedArslaan",
         cover: "./assets/covers/couple.jpg",
-        file: "./assets/songs/i Wanna Be Yours.mp3",
+        file: "./assets/songs/I Wanna Be Yours.mp3",
         duration: "00:39"
     },
     {
