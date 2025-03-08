@@ -182,7 +182,7 @@ const songs = [
         title: "india love",
         artist: "SayyedArslaan",
         cover: "./assets/covers/couple-2.jpg",
-        file: "./assets/songs/india-Love.mp3",
+        file: "./assets/songs/India-Love.mp3",
         duration: "00:30"
     },
     {
