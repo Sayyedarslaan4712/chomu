@@ -490,13 +490,4 @@ body::before {
     font-weight: 500;
     font-size: 0.75rem;
 }
-/* Existing CSS */
 
-/* Add this at the end of your CSS file */
-
-/* Media query for mobile devices */
-@media (max-width: 768px) {
-    .slide-bar {
-        display: none;
-    }
-}
